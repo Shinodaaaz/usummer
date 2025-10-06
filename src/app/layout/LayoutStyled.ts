@@ -60,6 +60,8 @@ export const IconButton = styled.button`
 export const Main = styled.main`
   flex: 1;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Footer = styled.footer`

@@ -6,6 +6,7 @@ import {Surprise} from "./pages/Surprise/Surprise.tsx";
 import {LoginPage} from "./pages/Login/LoginPage.tsx";
 import Layout from "./layout/Layout.tsx";
 import {ProtectedRoute} from "./router/ProtectedRoute.tsx";
+import {WheelPage} from "./pages/Wheel/WheelPage.tsx";
 
 export const createRoutes = (toggleTheme: () => void) => [
   { path: "/login", element: <LoginPage /> },
@@ -14,6 +15,7 @@ export const createRoutes = (toggleTheme: () => void) => [
     element: <Layout toggleTheme={toggleTheme} />,
     children: [
       { path: "/", element: <ProtectedRoute><Home /></ProtectedRoute> },
+      { path: "/lottery-wheel", element: <ProtectedRoute><WheelPage/></ProtectedRoute> },
       { path: "/gallery", element: <ProtectedRoute><Gallery /></ProtectedRoute> },
       { path: "/letters", element: <ProtectedRoute><Letters /></ProtectedRoute> },
       { path: "/dreams", element: <ProtectedRoute><Dreams /></ProtectedRoute> },

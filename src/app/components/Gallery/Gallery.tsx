@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
+import {LotteryWheel} from "../Wheel/Wheel.tsx";
 
 const GalleryWrapper = styled.div`
   display: flex;
@@ -90,8 +91,6 @@ export function Gallery() {
           />
         </AnimatePresence>
       </CarouselWrapper>
-{/*      <MusicPlayer/>*/}
- {/*     <LotteryWheel/>*/}
     </GalleryWrapper>
   );
 }

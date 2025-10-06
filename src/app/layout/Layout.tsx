@@ -68,6 +68,9 @@ export default function Layout({ toggleTheme }: LayoutProps) {
               <StyledLink to="/" onClick={handleLinkClick}>
                 Главная
               </StyledLink>
+              <StyledLink to="/lottery-wheel" onClick={handleLinkClick}>
+                Лотерея
+              </StyledLink>
               <StyledLink to="/gallery" onClick={handleLinkClick}>
                 Галерея
               </StyledLink>
