@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import {FlipUnit} from "../../components/FlipUnit.tsx";
 import {Gallery} from "../../components/Gallery/Gallery.tsx";
-import {LotteryWheel} from "../../components/Wheel/Wheel.tsx";
-import {MusicPlayer} from "../../components/MusicPlayer/MusicPlayer.tsx";
 
 const RELATIONSHIP_START = new Date("2025-09-30T00:00:00");
 

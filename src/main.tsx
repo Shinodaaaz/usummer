@@ -5,13 +5,16 @@ import {BrowserRouter} from "react-router-dom";
 import {ThemeProvider} from "styled-components";
 import {GlobalStyle} from "./app/globalStyles.ts";
 import {theme} from "./app/theme.ts";
+import {AuthProvider} from "./app/providers/AuthContext.tsx";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <GlobalStyle/>
-        <App/>
+        <AuthProvider>
+          <App/>
+        </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>
   </StrictMode>,

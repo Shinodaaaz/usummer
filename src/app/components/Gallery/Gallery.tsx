@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
-import {MusicPlayer} from "../MusicPlayer/MusicPlayer.tsx";
-import {LotteryWheel} from "../Wheel/Wheel.tsx";
 
 const GalleryWrapper = styled.div`
   display: flex;
@@ -28,9 +26,6 @@ const Slide = styled(motion.img)`
   cursor: grab;
 `;
 
-const AddPhoto = styled.input`
-  margin-top: 20px;
-`;
 
 const slideVariants = {
   enter: (direction: number) => ({
@@ -48,7 +43,7 @@ const slideVariants = {
 };
 
 export function Gallery() {
-  const photos = [
+  const photos: string[] = [
     "/photos/ann.jpg",
     "/photos/sergey.jpg",
   ];

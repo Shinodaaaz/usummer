@@ -1,68 +1,69 @@
 import styled from "styled-components";
-import {motion} from "framer-motion";
-import {NavLink} from "react-router-dom";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 12px 20px;
   background: ${({ theme }) => theme.colors.headerBg};
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 `;
 
-export const Nav = styled(motion.nav)`
-  display: flex;
-  gap: 20px;
-
-  @media (max-width: 768px) {
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    background: ${({ theme }) => theme.colors.headerBg};
-    border-radius: 12px;
-    flex-direction: column;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.15);
-  }
+export const Nav = styled(motion.nav)<{ $isMobile?: boolean }>`
+  display: ${({ $isMobile }) => ($isMobile ? "flex" : "flex")};
+  flex-direction: ${({ $isMobile }) => ($isMobile ? "column" : "row")};
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing(2)};
+  position: ${({ $isMobile }) => ($isMobile ? "absolute" : "static")};
+  top: ${({ $isMobile }) => ($isMobile ? "60px" : "auto")};
+  left: ${({ $isMobile }) => ($isMobile ? "0" : "auto")};
+  width: ${({ $isMobile }) => ($isMobile ? "100%" : "auto")};
+  background: ${({ theme, $isMobile }) =>
+  $isMobile ? theme.colors.headerBg : "transparent"};
+  padding: ${({ $isMobile }) => ($isMobile ? "16px 0" : "0")};
+  box-shadow: ${({ $isMobile }) =>
+  $isMobile ? "0 4px 10px rgba(0,0,0,0.1)" : "none"};
 `;
 
-export const StyledLink = styled(NavLink)`
-  font-weight: 500;
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  font-weight: 600;
   color: ${({ theme }) => theme.colors.text};
-  transition: color 0.2s;
+  transition: color 0.3s;
 
-  &.active {
+  &:hover {
     color: ${({ theme }) => theme.colors.accent};
   }
-`;
-
-export const Main = styled.main`
-  flex: 1;
-  padding: 40px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Footer = styled.footer`
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-  opacity: 0.7;
 `;
 
 export const IconButton = styled.button`
   background: none;
   border: none;
-  cursor: pointer;
   color: ${({ theme }) => theme.colors.text};
-  display: flex;
-  align-items: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+`;
+
+export const Main = styled.main`
+  flex: 1;
+  padding: 20px;
+`;
+
+export const Footer = styled.footer`
+  padding: 10px;
+  text-align: center;
+  background: ${({ theme }) => theme.colors.headerBg};
 `;
