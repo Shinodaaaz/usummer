@@ -20,6 +20,12 @@ const WheelContainer = styled.div`
   height: 260px;
 `;
 
+const WheelWrapperContainerAndButton = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+`;
+
 const Wheel = styled.div<{ rotation: number; spinning: boolean }>`
   width: 100%;
   height: 100%;
@@ -191,7 +197,7 @@ export function LotteryWheel() {
   return (
     <WheelWrapper>
       {/* Колесо */}
-      <div>
+      <WheelWrapperContainerAndButton>
         <WheelContainer>
           <Pointer />
           <Wheel rotation={rotation} spinning={spinning} />
@@ -200,7 +206,7 @@ export function LotteryWheel() {
           {spinning ? "Крутится..." : "Крутить"}
         </Button>
         {result && <ResultText>🎁 Ваш приз: {result}</ResultText>}
-      </div>
+      </WheelWrapperContainerAndButton>
 
       {/* Управление призами */}
       <PrizeList>
