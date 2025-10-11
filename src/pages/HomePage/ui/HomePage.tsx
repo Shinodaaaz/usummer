@@ -46,6 +46,13 @@ const Label = styled.span`
   color: ${({ theme }) => theme.colors.text};
 `;
 
+const GameStatus = styled.div`
+  font-size: 2rem;
+  width: max-content;
+  color: darkorange;
+  animation: ${heartbeat} 2.6s infinite;
+`;
+
 export function HomePage() {
   const [time, setTime] = useState({
     days: 0,
@@ -55,7 +62,7 @@ export function HomePage() {
   });
   const [prevTime, setPrevTime] = useState(time);
 
-  useEffect(() => {
+/*  useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date();
       const diff = now.getTime() - RELATIONSHIP_START.getTime();
@@ -72,11 +79,15 @@ export function HomePage() {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, []);*/
 
   return (
     <TimerWrapper>
-      <Heart>❤️</Heart>
+      <Heart>💔</Heart>
+      <GameStatus>
+        Game over!
+      </GameStatus>
+      <Label></Label>
       <TimerBlockWrapper>
         <TimeBlock>
           <FlipUnit value={time.days} prevValue={prevTime.days} />
