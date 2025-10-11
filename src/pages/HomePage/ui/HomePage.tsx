@@ -106,7 +106,6 @@ export function HomePage() {
           <Label>секунд</Label>
         </TimeBlock>
       </TimerBlockWrapper>
-      <Gallery/>
     </TimerWrapper>
   );
 }
